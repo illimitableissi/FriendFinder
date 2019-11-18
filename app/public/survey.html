@@ -144,3 +144,40 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </body>
 </html>
+
+<script type="text/javascript">
+$(".btn").on("click", function(event) {
+    event.preventDefault();
+
+    var newFriend = {
+        name: $("#new-name").val().trim(),
+        photo: $("#photo-image").val().trim(),
+        scores: [
+            $("questionone").val(),
+            $("questiontwo").val(),
+            $("questionthree").val(),
+            $("questionfour").val(),
+            $("questionfive").val(),
+            $("questionsix").val(),
+            $("questionseven").val(),
+            $("questioneight").val(),
+            $("questionnine").val(),
+            $("questionten").val(),
+
+        ]
+
+
+    }
+
+
+
+
+
+
+
+})
+
+
+
+
+</script>
