@@ -1,6 +1,6 @@
 # Friend Finder
 
-Link: ![Heroku](https://friend-finderi.herokuapp.com/)
+Link: [Heroku](https://friend-finderi.herokuapp.com/)
 
 Welcome to Friend Finder! This site will take in results from your survey then compare your answers with those from other users. The app will then display the name and picture of the user with the best overall match to you.
 
