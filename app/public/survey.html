@@ -163,7 +163,7 @@
             </div>
             <div class="modal-body">
                 <h2 class="matchName"></h2>
-                <img class="matchImg" class="img-responsive"></img>
+                <img id="matchImg" class="img-responsive"></img>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
@@ -213,7 +213,7 @@ $("#submit-button").on("click", function(event) {
 
     $.post(currentURL + "/api/friends", userInput, function(data) {
         $(".matchName").text(data.name);
-        $(".matchImg").attr("src", data.photo);
+        $("#matchImg").attr("src", data.photo);
         $(".modal").modal("toggle")
 
         // Clear the form when submitting
