@@ -13,6 +13,7 @@
         <div class="col">
             <h1>Survey Questions</h1>
             <hr>
+            <h3>About You</h3>
             <form>
                 <div class="form-group">
                     <label for="name">Name (Required)</label>
@@ -124,7 +125,7 @@
                       <option>5 (Strongly Agree)</option>
                     </select>
             </div>  
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
         </div>
     </div>
 </div>
@@ -146,7 +147,7 @@
 </html>
 
 <script type="text/javascript">
-$(".btn").on("click", function(event) {
+$("#submit-button").on("click", function(event) {
     event.preventDefault();
 
     var newFriend = {
@@ -175,6 +176,16 @@ $(".btn").on("click", function(event) {
         // Clear the form when submitting
         $("#new-name").val("");
         $("#photo-image").val("");
+        $("#questionone").val("");
+        $("#questiontwo").val("");
+        $("#questionthree").val("");
+        $("#questionfour").val("");
+        $("#questionfive").val("");
+        $("#questionsix").val("");
+        $("#questionseven").val("");
+        $("#questioneight").val("");
+        $("#questionnine").val("");
+        $("#questionten").val("");
       });
 });
 
