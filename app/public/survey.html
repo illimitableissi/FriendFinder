@@ -153,7 +153,7 @@
             </div>
             <div class="modal-body">
                 <h2 class="matchName"></h2>
-                <img class="matchimg"></img>
+                <img class="matchImg"></img>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
@@ -198,15 +198,15 @@ $("#submit-button").on("click", function(event) {
             $("#questionnine").val(),
             $("#questionten").val(),
         ]
-    }
+    };
      var currentURL = window.location.origin;
 
     console.log(newFriend);
 
     $.post(currentURL + "/api/friends", newFriend)
     .then(function(data) {
-        $("matchName").text(data.name);
-        $("matchImg").attr("src", data.photo);
+        $(".matchName").text(data.name);
+        $(".matchImg").attr("src", data.photo);
         $("#resultsModal").modal("toggle")
 
         // Clear the form when submitting
