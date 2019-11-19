@@ -28,6 +28,7 @@
             <div class="form-group">
                     <label for="question">Question 1</label>
                     <select class="form-control" id="questionone">
+                    <option value=""></option>    
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -38,6 +39,7 @@
             <div class="form-group">
                     <label for="question">Question 2</label>
                     <select class="form-control" id="questiontwo">
+                    <option value=""></option> 
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -48,6 +50,7 @@
             <div class="form-group">
                     <label for="question">Question 3</label>
                     <select class="form-control" id="questionthree">
+                    <option value=""></option>     
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -58,6 +61,7 @@
             <div class="form-group">
                     <label for="question">Question 4</label>
                     <select class="form-control" id="questionfour">
+                    <option value=""></option>    
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -68,6 +72,7 @@
             <div class="form-group">
                     <label for="question">Question 5</label>
                     <select class="form-control" id="questionfive">
+                    <option value=""></option> 
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -78,6 +83,7 @@
             <div class="form-group">
                     <label for="question">Question 6</label>
                     <select class="form-control" id="questionsix">
+                    <option value=""></option>    
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -88,6 +94,7 @@
             <div class="form-group">
                     <label for="question">Question 7</label>
                     <select class="form-control" id="questionseven">
+                    <option value=""></option>    
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -98,6 +105,7 @@
             <div class="form-group">
                     <label for="question">Question 8</label>
                     <select class="form-control" id="questioneight">
+                    <option value=""></option>    
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -108,6 +116,7 @@
             <div class="form-group">
                     <label for="question">Question 9</label>
                     <select class="form-control" id="questionnine">
+                    <option value=""></option>    
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -118,6 +127,7 @@
             <div class="form-group">
                     <label for="question">Question 10</label>
                     <select class="form-control" id="questionten">
+                    <option value=""></option> 
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -146,14 +156,14 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Your Match!</h5>
+                <h5 class="modal-title">Your New Friend!</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <h2 class="matchName"></h2>
-                <img class="matchImg"></img>
+                <img class="matchImg" class="img-responsive"></img>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
@@ -183,7 +193,7 @@ $("#submit-button").on("click", function(event) {
         }
         if (validateForm() == true) {
 
-    var newFriend = {
+    var userInput = {
         name: $("#new-name").val().trim(),
         photo: $("#photo-image").val().trim(),
         scores: [
@@ -201,10 +211,9 @@ $("#submit-button").on("click", function(event) {
     };
      var currentURL = window.location.origin;
 
-    console.log(newFriend);
+    console.log(userInput);
 
-    $.post(currentURL + "/api/friends", newFriend)
-    .then(function(data) {
+    $.post(currentURL + "/api/friends", userInput, function(data) {
         $(".matchName").text(data.name);
         $(".matchImg").attr("src", data.photo);
         $("#resultsModal").modal("toggle")

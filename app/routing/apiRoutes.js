@@ -39,14 +39,11 @@ module.exports = function(app) {
 			userScores[i] = parseInt(userScores[i]);
 		}
 
-		var bestDifference = 1000; 
-
 		for (i = 0; i < friends.length; i++) {
 			var tempDifference = difference(userScores, friends[i].scores);
             console.log(`The difference between your scores: ${userScores} and ${friends[i].name} scores: ${friends[i].scores} is ${tempDifference}`);
             
-			if (tempDifference < bestDifference) {
-				bestDifference = tempDifference;
+			if (tempDifference <= bestMatch.friendDifference) {
                 bestMatch.name = friends[i].name;
                 bestMatch.photo = friends[i].photo;
                 bestMatch.friendDifference = tempDifference
