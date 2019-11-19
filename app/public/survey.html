@@ -141,7 +141,29 @@
                 </div>
             </div>
         </div>
-    </footer>
+
+<div id="resultsModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Your Match!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h2 class="matchName"></h2>
+                <img class="matchimg"></img>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+        </div>
+
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </body>
 </html>
@@ -149,6 +171,17 @@
 <script type="text/javascript">
 $("#submit-button").on("click", function(event) {
     event.preventDefault();
+    function validateForm() {
+          var isValid = true;
+          $(".form-control").each(function() {
+            if ($(this).val() === "") isValid = false;
+          });
+          $(".chosen-select").each(function() {
+            if ($(this).val() === "") isValid = false;
+          });
+          return isValid;
+        }
+        if (validateForm() == true) {
 
     var newFriend = {
         name: $("#new-name").val().trim(),
@@ -166,12 +199,15 @@ $("#submit-button").on("click", function(event) {
             $("#questionten").val(),
         ]
     }
+     var currentURL = window.location.origin;
 
     console.log(newFriend);
 
-    $.post("/api/friends", newFriend)
+    $.post(currentURL + "/api/friends", newFriend)
     .then(function(data) {
-        console.log(data)
+        $("matchName").text(data.name);
+        $("matchImg").attr("src", data.photo);
+        $("#resultsModal").modal("toggle")
 
         // Clear the form when submitting
         $("#new-name").val("");
@@ -187,8 +223,11 @@ $("#submit-button").on("click", function(event) {
         $("#questionnine").val("");
         $("#questionten").val("");
       });
+    } else {
+        alert("Please fill out all fields before submitting!");
+    }
+        return false;
 
-    
 });
 
 </script>

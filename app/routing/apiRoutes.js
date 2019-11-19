@@ -24,11 +24,27 @@ module.exports = function(app) {
   });
 
   app.post("/api/friends/", function(req, res) {
-    surveyResults = req.body.scores
-    console.log(surveyResults)
+    var totalDifference = 0;
+    var bestMatch = {
+        name: "",
+        photo: "",
+        friendDifference: 2000
+    };
+     var userData = req.body;
+     var userName = userData.name;
+     var userScores = userData.scores;
 
+     var b = userScores.map(function(item) {
+         return parseInt(item, 10);
+     });
+    userData = {
+        name: req.body.name,
+        photo: req.body.photo,
+        scroes: b
+    };
+    console.log(`Name ${userName}`);
+    console.log(`User Scores ${userScores} `)
 
+    var sum = b.reduce((a, b) => a + b, 0);
   });
-
-
 }
