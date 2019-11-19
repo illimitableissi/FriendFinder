@@ -26,7 +26,7 @@
             </form>
             <hr>
             <div class="form-group">
-                    <label for="question">Question 1</label>
+                    <label for="question">You prefer to spend your free time alone.</label>
                     <select class="form-control" id="questionone">
                     <option value=""></option>    
                     <option value="1">1 (Strongly Disagree)</option>
@@ -37,7 +37,7 @@
                 </select>
             </div>
             <div class="form-group">
-                    <label for="question">Question 2</label>
+                    <label for="question">The idea of bars and loud night clubs do not appeal to you.</label>
                     <select class="form-control" id="questiontwo">
                     <option value=""></option> 
                     <option value="1">1 (Strongly Disagree)</option>
@@ -48,7 +48,7 @@
                     </select>
             </div>
             <div class="form-group">
-                    <label for="question">Question 3</label>
+                    <label for="question">You prefer group activities over solo activities.</label>
                     <select class="form-control" id="questionthree">
                     <option value=""></option>     
                     <option value="1">1 (Strongly Disagree)</option>
@@ -59,7 +59,7 @@
                     </select>
             </div>
             <div class="form-group">
-                    <label for="question">Question 4</label>
+                    <label for="question">You feel that videogames have no value in society.</label>
                     <select class="form-control" id="questionfour">
                     <option value=""></option>    
                     <option value="1">1 (Strongly Disagree)</option>
@@ -70,7 +70,7 @@
                     </select>
             </div>
             <div class="form-group">
-                    <label for="question">Question 5</label>
+                    <label for="question">You find joy in being around people.</label>
                     <select class="form-control" id="questionfive">
                     <option value=""></option> 
                     <option value="1">1 (Strongly Disagree)</option>
@@ -81,7 +81,7 @@
                     </select>
             </div>
             <div class="form-group">
-                    <label for="question">Question 6</label>
+                    <label for="question">You prefer to not take yourself seriously.</label>
                     <select class="form-control" id="questionsix">
                     <option value=""></option>    
                     <option value="1">1 (Strongly Disagree)</option>
@@ -92,7 +92,7 @@
                     </select>
             </div>
             <div class="form-group">
-                    <label for="question">Question 7</label>
+                    <label for="question">You frequently daydream.</label>
                     <select class="form-control" id="questionseven">
                     <option value=""></option>    
                     <option value="1">1 (Strongly Disagree)</option>
@@ -103,7 +103,7 @@
                     </select>
             </div>
             <div class="form-group">
-                    <label for="question">Question 8</label>
+                    <label for="question">You prefer staying with companies long-term or leaving within -2 years.</label>
                     <select class="form-control" id="questioneight">
                     <option value=""></option>    
                     <option value="1">1 (Strongly Disagree)</option>
@@ -114,7 +114,7 @@
                     </select>
             </div>
             <div class="form-group">
-                    <label for="question">Question 9</label>
+                    <label for="question">You enjoy job interviews.</label>
                     <select class="form-control" id="questionnine">
                     <option value=""></option>    
                     <option value="1">1 (Strongly Disagree)</option>
@@ -125,7 +125,7 @@
                     </select>
             </div>
             <div class="form-group">
-                    <label for="question">Question 10</label>
+                    <label for="question">You deal with stress effectively.</label>
                     <select class="form-control" id="questionten">
                     <option value=""></option> 
                     <option value="1">1 (Strongly Disagree)</option>
@@ -152,7 +152,7 @@
             </div>
         </div>
 
-<div id="resultsModal" class="modal" tabindex="-1" role="dialog">
+<div class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
@@ -170,9 +170,7 @@
             </div>
             </div>
         </div>
-        </div>
-
-
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </body>
@@ -216,7 +214,7 @@ $("#submit-button").on("click", function(event) {
     $.post(currentURL + "/api/friends", userInput, function(data) {
         $(".matchName").text(data.name);
         $(".matchImg").attr("src", data.photo);
-        $("#resultsModal").modal("toggle")
+        $(".modal").modal("toggle")
 
         // Clear the form when submitting
         $("#new-name").val("");
